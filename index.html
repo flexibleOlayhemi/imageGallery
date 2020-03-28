@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Imagege Gallery Version Control</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jayes.js"></script>
+</head>
+<body>
+
+	<div class="gal">
+		<h1>Image Gallery</h1>
+		<p id="h"></p>
+		<button onclick="vid()">Take snapshot</button>
+
+
+		<button onclick="PreviewImgs()">Preview</button><br>
+		<p><button onclick="getStream()">Grab video</button></p>
+		<p><video autoplay style="height: 180px; width: 240px; border:2px solid black;"></video></p>
+		<p><button onclick="takePhoto()">Take Photo!</button></p>
+		<p><img id="imageTag" width="240" height="180"></p>
+		<h1>Photo Preview</h1>
+			<div id="img">
+				<img src="ab.jpg" width="300" height="200">
+			</div>
+			<div id="img">
+				<img src="ab.jpg" width="300" height="200">
+			</div>
+			<div id="img">
+				<img src="ab.jpg" width="300" height="200">
+			</div>
+		
+	</div>
+
+
+</body>
+</html>
