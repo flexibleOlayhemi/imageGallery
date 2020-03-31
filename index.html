@@ -4,35 +4,111 @@
 	<title>Imagege Gallery Version Control</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="jayes.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jayes.js"></script>
+	
+	<script type="text/javascript">
+		// A button for taking snaps -->
+  		// Code to handle taking the snapshot and displaying it locally -->
+  
+  		var i=1;
+    function take_snapshot() {
+      
+      
+      // take snapshot and get image data
+      Webcam.snap( function(data_uri) {
+        // Display results in page
+        	while (("img"+i) in localStorage){ 
+        		//while name exist , try to create another name
+        		//by increamenting the name index
+        			i++;
+        	}
+        	 //check if the mae doesnt exist
+        	localStorage.setItem("img"+i,data_uri);
+        	var imageCreate = document.createElement("img");
+        	imageCreate.src = data_uri;
+        	document.getElementById("img1").appendChild(imageCreate);
+        
+        
+
+      } );
+      i++;
+    }
+
+    function clearStorage(){
+    		localStorage.clear();
+    }
+
+    function previewFromLs(){
+
+    		var j=1;
+    	if (localStorage !== null){
+    					//fetch all the images from the local storage
+    					do{
+    						 if (("img"+j) in localStorage){
+								var srcName = localStorage.getItem("img"+j);
+					        	var imageCreate = document.createElement("img");
+					        	imageCreate.src = srcName;
+					        	
+					        	document.getElementById("img1").appendChild(imageCreate);
+				        	
+				        	 }
+				        	j++;
+
+			        	}while (j <= localStorage.length);
+			        
+			   }
+    		}
+			
+  
+    
+	</script>
+			<!-- Webcam.min.js -->
+    <script type="text/javascript" src="webcamjs/webcam.min.js"></script>
 </head>
 <body>
 
 	<div class="gal">
+
+
+	<!-- Configure a few settings and attach camera -->
+	<script language="JavaScript">
+		Webcam.set({
+			width: 320,
+			height: 240,
+			image_format: 'jpeg',
+			jpeg_quality: 90
+		});
+		
+	</script>
 		<h1>Image Gallery</h1>
 		<p id="h"></p>
-		<button onclick="vid()">Take snapshot</button>
+		<button onclick="storeName()">Store Name</button>
+		<button onclick="previewFromLs()">Preview From storage</button>
 
 
-		<button onclick="PreviewImgs()">Preview</button><br>
-		<p><button onclick="getStream()">Grab video</button></p>
-		<p><video autoplay style="height: 180px; width: 240px; border:2px solid black;"></video></p>
-		<p><button onclick="takePhoto()">Take Photo!</button></p>
-		<p><img id="imageTag" width="240" height="180"></p>
-		<h1>Photo Preview</h1>
-			<div id="img">
-				<img src="ab.jpg" width="300" height="200">
+		<button onclick="clearStorage()">Clear Storage</button><br>
+		<button onclick="Webcam.attach( '#my_camera' );">Grab video</button>
+		<button onclick="take_snapshot()">Take Snapshot</button>
+		<div id="my_camera"></div>
+		<h1>Preview</h1>
+			<div id="img1">
+				
 			</div>
-			<div id="img">
-				<img src="ab.jpg" width="300" height="200">
-			</div>
-			<div id="img">
-				<img src="ab.jpg" width="300" height="200">
-			</div>
-		
+			
+
+			
+	
+	
+    
+	
+
+	
 	</div>
 
+    
+
+	
 
 </body>
 </html>

@@ -20,7 +20,7 @@ h1 {
 	margin: auto;
 }
 button{
-	width: 150px;
+	width: 200px;
 	height: 50px;
 	text-align: center;
 	padding: 10px;
@@ -30,6 +30,9 @@ button{
 	border-radius: 30px;
 	display: inline-block;
 	margin: 10px;
+}
+button:hover{
+	background: rgb(0,0,200);
 }
 #videoElement {
 	width: 500px;
@@ -45,4 +48,24 @@ div #img {
 
 div #img img:hover {
     border: 1px solid #777;
+}
+
+ #my_camera{
+        width: 320px;
+        height: 240px;
+        border: 1px solid black;
+    }
+#img1 img {
+
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	margin:10px; 
+
+}
+
+#img1 img:hover {
+
+	border: 1px solid red;
+
 }
