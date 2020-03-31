@@ -37,6 +37,7 @@
 
     function clearStorage(){
     		localStorage.clear();
+    		location.reload();
     }
 
     function previewFromLs(){
@@ -66,7 +67,7 @@
 			<!-- Webcam.min.js -->
     <script type="text/javascript" src="webcamjs/webcam.min.js"></script>
 </head>
-<body>
+<body onload="previewFromLs()">
 
 	<div class="gal">
 
@@ -84,9 +85,6 @@
 		<h1>Image Gallery</h1>
 		<p id="h"></p>
 		<button onclick="storeName()">Store Name</button>
-		<button onclick="previewFromLs()">Preview From storage</button>
-
-
 		<button onclick="clearStorage()">Clear Storage</button><br>
 		<button onclick="Webcam.attach( '#my_camera' );">Grab video</button>
 		<button onclick="take_snapshot()">Take Snapshot</button>
